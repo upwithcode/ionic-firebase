@@ -6,21 +6,18 @@
 
 	/******/
 
-	function PhotoService($q, $timeout) {
+	function PhotoService($firebaseArray, FB_URL) {
+		var fbRef = new Firebase(FB_URL);
+
 		return {
-			savePhoto: function () {
-				var dfd = $q.defer();
-
-				$timeout(function () {
-					dfd.resolve();
-				}, 0);
-
-				return dfd.promise;
+			savePhoto: function (photo) {
+				var photos = $firebaseArray(fbRef);
+				return photos.$add(photo);
 			}
 		};
 
 		/******/
 	}
 
-	PhotoService.$inject = ['$q', '$timeout'];
+	PhotoService.$inject = ['$firebaseArray', 'FB_URL'];
 })();

@@ -1,7 +1,8 @@
 (function () {
 	"use strict";
 
-	angular.module('app', ['ionic', 'ngCordova', 'ngResource'])
+	angular.module('app', ['ionic', 'ngCordova', 'ngResource', 'firebase'])
+		.constant('FB_URL', 'https://ionic-photos.firebaseio.com')
 		.run(run);
 
 	/******/
