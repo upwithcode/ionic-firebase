@@ -1,10 +1,14 @@
 <ion-view view-title="Recent photos">
 	<ion-content>
-		<ion-list>
-			<ion-item ng-repeat="photo in Photos.photos"
-			          href="#/app/photos/{{photo.id}}">
-				<img ng-src="{{photo.url}}" alt=""/>
-			</ion-item>
-		</ion-list>
+		<div class="list card"
+		     ng-repeat="photo in Photos.photos">
+			<div class="item item-image">
+				<a href="#/app/photos/{{photo.id}}">
+					<img ng-src="{{photo.url}}" alt=""/>
+				</a>
+			</div>
+
+			<h3>Taken at: {{photo.location}}</h3>
+		</div>
 	</ion-content>
 </ion-view>
