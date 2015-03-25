@@ -1,4 +1,4 @@
-# ionic-firebase-devmeetings
+# ionic-firebase
 
 ## Installation
 
