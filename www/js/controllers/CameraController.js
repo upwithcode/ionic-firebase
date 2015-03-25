@@ -7,7 +7,8 @@
 	/******/
 
 	function CameraController($ionicLoading, CameraService, PhotoService, GeoLocationService) {
-		var takenPicture;
+		var takenPicture,
+			currentPosition;
 
 		this.takePicture = takePicture;
 		this.showPopup = showPopup;
@@ -18,14 +19,20 @@
 			CameraService
 				.takePicture()
 				.then(function (picture) {
-					takenPicture = picture;
+					takenPicture = 'data:image/jpeg;base64,' + picture;
 
 					return GeoLocationService.getCurrentPosition();
 				})
 				.then(function (position) {
+					currentPosition = position;
+
+					return GeoLocationService.getAddress(position);
+				})
+				.then(function (location) {
 					return PhotoService.savePhoto({
 						picture: takenPicture,
-						position: position
+						position: currentPosition,
+						location: location
 					});
 				})
 				.then(function () {
