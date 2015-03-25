@@ -6,11 +6,17 @@
 
 	/******/
 
-	function PhotoController() {
-		this.photo = {
-			url: 'http://lorempixel.com/800/400/',
-			lon: '',
-			lat: ''
-		};
+	function PhotoController($scope, $stateParams, $firebaseObject, FB_URL) {
+		var photoRef = new Firebase(FB_URL + '/' + $stateParams.photoId),
+			photo = $firebaseObject(photoRef);
+
+		photo.$bindTo($scope, 'photo');
+		$scope.like = like;
+
+		/******/
+
+		function like() {
+			$scope.photo.like++;
+		}
 	}
 })();

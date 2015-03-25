@@ -3,12 +3,15 @@
 		<div class="list card"
 		     ng-repeat="photo in Photos.photos">
 			<div class="item item-image">
-				<a href="#/app/photos/{{photo.id}}">
+				<a href="#/app/photos/{{photo.$id}}">
 					<img ng-src="{{photo.picture}}" alt=""/>
 				</a>
 			</div>
 
-			<h3>Taken at: {{photo.location}}</h3>
+			<h3>
+				<i class="ion-earth"></i>
+				{{photo.location}}
+			</h3>
 		</div>
 	</ion-content>
 </ion-view>

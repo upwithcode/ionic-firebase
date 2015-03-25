@@ -1,9 +1,18 @@
 <ion-view view-title="Photo">
 	<ion-content>
-		<div class="list card">
+		<div class="list card" on-swipe-up="like()">
 			<div class="item item-image">
-				<img ng-src="{{Photo.photo.url}}" alt=""/>
+				<img ng-src="{{photo.picture}}" alt=""/>
 			</div>
+
+			<h3>
+				<i class="ion-earth"></i>
+				{{photo.location}}
+			</h3>
+			<h3>
+				<i class="ion-thumbsup"></i>
+				{{photo.like}}
+			</h3>
 		</div>
 	</ion-content>
 </ion-view>
