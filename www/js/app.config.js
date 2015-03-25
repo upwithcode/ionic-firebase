@@ -36,7 +36,8 @@
 				url: "/scoreboard",
 				views: {
 					'menuContent': {
-						templateUrl: "templates/scoreboard.html"
+						templateUrl: "templates/scoreboard.html",
+						controller: 'ScoreBoardController as ScoreBoard'
 					}
 				}
 			});
