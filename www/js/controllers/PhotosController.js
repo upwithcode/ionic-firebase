@@ -6,32 +6,9 @@
 
 	/******/
 
-	function PhotosController() {
-		this.photos = [
-			{
-				id: 1,
-				url: 'http://lorempixel.com/800/400/',
-				lon: '',
-				lat: ''
-			},
-			{
-				id: 2,
-				url: 'http://lorempixel.com/800/400/',
-				lon: '',
-				lat: ''
-			},
-			{
-				id: 3,
-				url: 'http://lorempixel.com/800/400/',
-				lon: '',
-				lat: ''
-			},
-			{
-				id: 4,
-				url: 'http://lorempixel.com/800/400/',
-				lon: '',
-				lat: ''
-			}
-		];
+	function PhotosController($firebaseArray, FB_URL) {
+		this.photos = $firebaseArray(new Firebase(FB_URL));
 	}
+
+	PhotosController.$inject = ['$firebaseArray', 'FB_URL'];
 })();

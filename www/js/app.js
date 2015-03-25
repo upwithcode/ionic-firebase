@@ -2,7 +2,7 @@
 	"use strict";
 
 	angular.module('app', ['ionic', 'ngCordova', 'ngResource', 'firebase'])
-		.constant('FB_URL', 'https://ionic-photos.firebaseio.com')
+		.constant('FB_URL', 'https://ionic-dev-photos.firebaseio.com/')
 		.run(run);
 
 	/******/
