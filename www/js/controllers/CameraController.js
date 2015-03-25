@@ -6,10 +6,11 @@
 
 	/******/
 
-	function CameraController(CameraService) {
+	function CameraController($ionicLoading, CameraService, PhotoService, GeoLocationService) {
 		var takenPicture;
 
 		this.takePicture = takePicture;
+		this.showPopup = showPopup;
 
 		/******/
 
@@ -18,9 +19,27 @@
 				.takePicture()
 				.then(function (picture) {
 					takenPicture = picture;
-				});;
+
+					return GeoLocationService.getCurrentPosition();
+				})
+				.then(function (position) {
+					return PhotoService.savePhoto({
+						picture: takenPicture,
+						position: position
+					});
+				})
+				.then(function () {
+					this.showPopup();
+				}.bind(this));
+		}
+
+		function showPopup() {
+			$ionicLoading.show({
+				template: 'Photo has been saved!',
+				duration: 1000
+			});
 		}
 	}
 
-	CameraController.$inject = ['CameraService'];
+	CameraController.$inject = ['$ionicLoading', 'CameraService', 'PhotoService', 'GeoLocationService'];
 })();
