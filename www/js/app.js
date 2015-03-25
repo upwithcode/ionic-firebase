@@ -1,7 +1,7 @@
 (function () {
 	"use strict";
 
-	angular.module('app', ['ionic', 'ngCordova'])
+	angular.module('app', ['ionic', 'ngCordova', 'ngResource'])
 		.run(run);
 
 	/******/
