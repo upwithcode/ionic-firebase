@@ -7,7 +7,8 @@
 	/******/
 
 	function PhotosController($firebaseArray, FB_URL) {
-		this.photos = $firebaseArray(new Firebase(FB_URL));
+		var fbRef = (new Firebase(FB_URL)).limitToLast(5);
+		this.photos = $firebaseArray(fbRef);
 	}
 
 	PhotosController.$inject = ['$firebaseArray', 'FB_URL'];
