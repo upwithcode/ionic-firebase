@@ -32,7 +32,8 @@
 					return PhotoService.savePhoto({
 						picture: takenPicture,
 						position: currentPosition,
-						location: location
+						location: location,
+						like: 0
 					});
 				})
 				.then(function () {
