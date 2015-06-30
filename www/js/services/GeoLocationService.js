@@ -28,7 +28,7 @@
 		/******/
 
 		function getCurrentPosition() {
-			var posOptions = {timeout: 10000, enableHighAccuracy: false},
+			var posOptions = {maximumAge: 10, timeout: 10000, enableHighAccuracy: false},
 				dfd = $q.defer();
 
 			$cordovaGeolocation
